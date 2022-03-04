@@ -44,19 +44,19 @@ export default class News extends Component {
         this.updatenews()
     }
 
-    // nextfun = async () => {
-    //     this.setState({
-    //         page: this.state.page + 1,
-    //     });
-    //     this.updatenews()
-    // }
+    nextfun = async () => {
+        this.setState({
+            page: this.state.page + 1,
+        });
+        this.updatenews()
+    }
 
-    // previousfun = async () => {
-    //     this.setState({
-    //         page: this.state.page - 1
-    //     });
-    //     this.updatenews()
-    // }
+    previousfun = async () => {
+        this.setState({
+            page: this.state.page - 1
+        });
+        this.updatenews()
+    }
 
     fetchMoreData = async () => {
         this.setState({
@@ -73,18 +73,18 @@ export default class News extends Component {
     render() {
         return (
             <>
-                <h1 className='text-center'>Top Headlines</h1>
+               <h1 className='text-center'>Top Headlines</h1>
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length !== this.state.totalResults}
                 //   loader={<Loading/>}
                 />
-                <div className='container my-3'>
+                <div className='container'>
                     <div className='row'>
                         {this.state.articles.map((element) => {
                             return <div className='col-md-4' key={element.url}>
-                                <NewsItems title={element.title ? element.title.slice(0, 45) :""} description={element.description ? element.description.slice(0, 90) : ""} imageurl={element.urlToImage?element.urlToImage:"https://depositphotos.com/247872612/stock-illustration-no-image-available-icon-vector.html"} newsread={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                <NewsItems title={element.title ? element.title.slice(0, 45) :""} description={element.description ? element.description.slice(0, 90) : ""} imageurl={element.urlToImage} newsread={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                             </div>
                         })}
                     </div>
