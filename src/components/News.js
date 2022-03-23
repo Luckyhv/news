@@ -70,6 +70,7 @@ export default class News extends Component {
             totalResults: Parseddata.totalResults
         })
     }
+
     render() {
         return (
             <>
